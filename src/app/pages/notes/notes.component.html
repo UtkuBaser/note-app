@@ -18,7 +18,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of noteList">
-        <td style="cursor: pointer">
+        <td width="10%" style="cursor: pointer">
           <i class="fa fa-trash-o" (click)="deleteNote(item)"></i>
           <i
             style="margin-left: 10px"
@@ -26,9 +26,9 @@
             (click)="goToDetail(item)"
           ></i>
         </td>
-        <td>{{ item.title }}</td>
+        <td width="20%">{{ item.title }}</td>
         <td>{{ item.body }}</td>
-        <td>{{ item.createdDate | date: "medium" }}</td>
+        <td width="20%">{{ item.createdDate | date: "medium" }}</td>
       </tr>
     </tbody>
   </table>
