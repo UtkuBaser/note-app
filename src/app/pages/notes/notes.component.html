@@ -1,0 +1,35 @@
+<div class="center" *ngIf="noteList.length == 0">
+  <not-found
+    text="Sorry, there is no notes here! Please click 'Add New Note' button to add new note."
+  ></not-found>
+</div>
+
+<div *ngIf="noteList.length > 0">
+  <table
+    class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth"
+  >
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Created Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of noteList">
+        <td style="cursor: pointer">
+          <i class="fa fa-trash-o" (click)="deleteNote(item)"></i>
+          <i
+            style="margin-left: 10px"
+            class="fa fa-info-circle"
+            (click)="goToDetail(item)"
+          ></i>
+        </td>
+        <td>{{ item.title }}</td>
+        <td>{{ item.body }}</td>
+        <td>{{ item.createdDate | date: "medium" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,41 @@
+<div class="center">
+  <div class="header">
+    {{ createView == true ? "Add New Note" : "View Note" }}
+  </div>
+  <div class="form">
+    <input
+      [ngClass]="{
+        required: !title && saveButtonClicked
+      }"
+      class="input is-medium"
+      type="text"
+      placeholder="Title"
+      [(ngModel)]="title"
+    />
+    <textarea
+      [ngClass]="{
+        required: !body && saveButtonClicked
+      }"
+      style="margin-top: 10px"
+      [(ngModel)]="body"
+      class="textarea"
+      placeholder="Body"
+    ></textarea>
+    <input
+      [ngClass]="{
+        required: !date && saveButtonClicked
+      }"
+      class="input is-medium"
+      type="datetime-local"
+      style="margin-top: 10px"
+      [(ngModel)]="date"
+    />
+    <button
+      (click)="save()"
+      style="float: right; margin-top: 10px"
+      class="button is-warning"
+    >
+      {{ createView == true ? "Add New Note" : "Save" }}
+    </button>
+  </div>
+</div>
